@@ -1,5 +1,6 @@
 import math
 import uuid
+
 from django.db import models
 
 
@@ -9,7 +10,11 @@ class ShapeBase(models.Model):
     uuid = models.UUIDField(db_index=True,
                             primary_key=True,
                             default=uuid.uuid4)
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200,
+                            default='shape')
+
+    class Meta:
+        abstract = True
 
 
 class Triangle(ShapeBase):
