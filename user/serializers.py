@@ -6,13 +6,13 @@ from user.models import User
 class UserSerializer(ModelSerializer):
     class Meta:
         model = User
-        fields = ['uuid', 'username', 'created', 'modified']
+        fields = ['uuid', 'username', 'first_name', 'last_name', 'created', 'modified']
 
 
 class UserCreateSerializer(ModelSerializer):
     class Meta:
         model = User
-        fields = ['username', 'password']
+        fields = ['username', 'password', 'first_name', 'last_name']
 
         extra_kwargs = {
             'password': {
